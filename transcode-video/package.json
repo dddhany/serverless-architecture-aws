@@ -4,7 +4,9 @@
   "description": "transcode video",
   "main": "index.js",
   "scripts": {
-    "test": "run-local-lambda --file index.js --event tests/event.json"
+    "test": "run-local-lambda --file index.js --event tests/event.json",
+    "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:ap-southeast-1:729120599327:function:transcode-video --zip-file fileb://Lambda-deployment.zip",
+    "predeploy": "7z a -r Lambda-deployment.zip * -x!*.zip -x!*.json -x!*.log -xr!*/7zip/* -xr!*/aws-sdk/*"
   },
   "dependencies": {
     "aws-sdk": "latest"
@@ -12,6 +14,7 @@
   "author": "Dhany",
   "license": "ISC",
   "devDependencies": {
-    "run-local-lambda": "^1.1.1"
+    "run-local-lambda": "^1.1.1",
+    "7zip": "^0.0.6"
   }
 }
