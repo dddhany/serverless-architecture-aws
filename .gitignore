@@ -57,4 +57,4 @@ typings/
 # dotenv environment variables file
 .env
 
-transcode-video/Lambda-deployment.zip
+*/Lambda-deployment.zip
