@@ -1,0 +1,20 @@
+{
+  "name": "set-permissions",
+  "version": "1.0.0",
+  "description": "set s3 permission",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "aws lambda update-function-code --function-name arn:aws:lambda:ap-southeast-1:729120599327:function:set-permissions --zip-file fileb://Lambda-deployment.zip",
+    "predeploy": "7z a -r Lambda-deployment.zip * -x!*.zip -x!*.json -x!*.log -xr!*/7zip/* -xr!*/aws-sdk/*"
+  },
+  "dependencies": {
+    "aws-sdk": "latest"
+  },
+  "author": "Dhany",
+  "license": "ISC",
+  "devDependencies": {
+    "run-local-lambda": "^1.1.1",
+    "7zip": "^0.0.6"
+  }
+}
